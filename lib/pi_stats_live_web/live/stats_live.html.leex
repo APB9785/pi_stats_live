@@ -1,0 +1,48 @@
+<style>
+td, th {
+  padding: 0px;
+}
+p {
+  margin-bottom: 0px;
+}
+</style>
+<div class="phx-hero">
+  <h1>Raspberry Pi - 192.168.0.216</h1>
+  <h2>Current Time: <%= @current_time %> CST</h2>
+  <br>
+  <p align="left">
+    <strong>Current temp:</strong> <%= @cels %> °C / <%= @fahr %> °F
+  </p>
+  <p align="left">
+    <strong>System uptime:</strong> 
+    <%= @uptime %> 
+  </p>
+  <p align="left">
+    <strong>Memory Usage:</strong> 
+    <%= @used_memory %> / <%= @total_memory %> MiB
+  </p>
+  <p align="left">
+    <strong>CPU Usage:</strong>
+    <%= @cpu_usage %> %
+  </p>
+  <br>
+</div>
+<div>
+  <h3 align="left">Active Processes:</h3>
+  <table style="padding: 0px; border-spacing: 0em">
+    <tr>
+      <th style="font-size: 0.75em">Name</th>
+      <th style="font-size: 0.75em">Uptime</th>
+      <th style="font-size: 0.75em">CPU Use</th>
+      <th style="font-size: 0.75em">RAM Use</th>
+    </tr>
+    <%= for proc <- @process_list do %>
+      <tr>
+        <td style="font-size: 0.75em"><%= proc["name"] %></td>
+        <td style="font-size: 0.75em"><%= proc["uptime"] %></td>
+        <td style="font-size: 0.75em"><%= proc["cpu"] %> %</td>
+        <td style="font-size: 0.75em"><%= proc["mem"] %> %</td>
+      </tr>
+    <%= end %>
+  </table>
+</div>
