@@ -9,5 +9,6 @@ To start the server:
   * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
   * Start Phoenix endpoint with `mix phx.server`
+  * If you receive any errors, see the [https://hexdocs.pm/phoenix/installation.html#content](full installation guide).
 
 Now you can visit http://[raspberry pi IP]:4000/stats from any device on the local network.
