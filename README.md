@@ -1,6 +1,6 @@
 # PiStatsLive
    
-x0.3 - Added disk usage   
+v0.3 - Added disk usage   
 v0.2.5 - Added tailwind CSS   
 v0.2 - Added Clock, uptime, CPU and RAM usage, and table of active processes   
 v0.1 - Shows real-time temperature in Celsius and Fahrenheit   
