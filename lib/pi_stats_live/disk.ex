@@ -6,7 +6,6 @@ defmodule PiStatsLive.Disk do
     case System.cmd("df", []) do
     {str, 0} -> 
       parse_df(str)
-      |> IO.inspect
     end
   end
 
@@ -37,5 +36,3 @@ defmodule PiStatsLive.Disk do
     |> Map.update!(:disk_used, &Float.round(&1 / 1024 / 1024, 2))
   end
 end
-
-PiStatsLive.Disk.get_current()
