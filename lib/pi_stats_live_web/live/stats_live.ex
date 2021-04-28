@@ -1,15 +1,22 @@
 defmodule PiStatsLiveWeb.StatsLive do
   use PiStatsLiveWeb, :live_view
 
-  alias PiStatsLive.Temp
-  alias PiStatsLive.SysProcs
   alias PiStatsLive.Disk
+  alias PiStatsLive.SysInfo
+  alias PiStatsLive.SysProcs
+  alias PiStatsLive.Temp
 
   def mount(_params, _session, socket) do
     if connected?(socket) do
       :timer.send_interval(5000, self(), :tick)
     end
       
+    socket =
+      socket
+      |> assign_all
+      |> assign(local_ip: SysInfo.get_local_ip())
+      |> assign(hostname: SysInfo.get_hostname())
+
     {:ok, assign_all(socket)}
   end
 
