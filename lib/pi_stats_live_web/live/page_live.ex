@@ -21,7 +21,7 @@ defmodule PiStatsLiveWeb.PageLive do
       assign(socket, chart_data: %{
         labels: [""],
         values: [socket.assigns.cels]
-      } end)
+      })
 
     {:ok, socket}
   end
