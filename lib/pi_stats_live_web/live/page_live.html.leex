@@ -6,10 +6,12 @@ p {
   margin-bottom: 0px;
 }
 </style>
+
 <div class="grid justify-center mt-4">
-  <div class="bg-gray-300 rounded-xl shadow-md antialiased p-4">
-    <h1><%= @hostname %> - <%= @local_ip %></h1>
-    <br>
+  <div class="bg-gray-300 rounded-xl shadow-md antialiased p-4 text-center md:w-1/3">
+    <div class="font-bold mb-4">
+      <%= @hostname %> - <%= @local_ip %>
+    </div>
     <h2>Current Time: <%= @current_time %> CST</h2>
     <h2>System uptime: <%= @uptime %></h2>
     <h2>HD/SD Usage: <%= @disk_used %> / <%= @disk_total %> GiB</h2>
