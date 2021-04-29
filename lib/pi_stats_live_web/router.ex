@@ -17,8 +17,7 @@ defmodule PiStatsLiveWeb.Router do
   scope "/", PiStatsLiveWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
-    live "/stats", StatsLive
+    live "/stats", PageLive
   end
 
   # Other scopes may use custom stacks.

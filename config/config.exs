@@ -7,9 +7,6 @@
 # General application configuration
 use Mix.Config
 
-config :pi_stats_live,
-  ecto_repos: [PiStatsLive.Repo]
-
 # Configures the endpoint
 config :pi_stats_live, PiStatsLiveWeb.Endpoint,
   url: [host: "localhost"],

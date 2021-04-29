@@ -7,8 +7,6 @@ defmodule PiStatsLive.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      PiStatsLive.Repo,
       # Start the Telemetry supervisor
       PiStatsLiveWeb.Telemetry,
       # Start the PubSub system
