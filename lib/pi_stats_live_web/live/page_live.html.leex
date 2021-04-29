@@ -7,24 +7,26 @@ p {
 }
 </style>
 
-<div class="my-12 py-6 bg-gray-300 rounded-xl shadow-md w-1/2">
-  <div class="grid justify-center">
-    <div class="font-bold mb-4">
-      <%= @hostname %> - <%= @local_ip %>
-    </div>
-    <div>
-      Current Time: <%= @current_time %> CST
-    </div>
-    <div>
-      System uptime: <%= @uptime %>
-    </div>
-    <div>
-      HD/SD Usage: <%= @disk_used %> / <%= @disk_total %> GiB
+<div class="flex justify-center">
+  <div class="my-2 md:mt-12 py-6 bg-gray-300 rounded-xl shadow-md w-full md:w-1/2">
+    <div class="grid justify-center">
+      <div class="font-bold mb-4">
+        <%= @hostname %> - <%= @local_ip %>
+      </div>
+      <div>
+        Current Time: <%= @current_time %> CST
+      </div>
+      <div>
+        System uptime: <%= @uptime %>
+      </div>
+      <div>
+        HD/SD Usage: <%= @disk_used %> / <%= @disk_total %> GiB
+      </div>
     </div>
   </div>
 </div>
 
-<div class="my-12 py-6 bg-white rounded-xl shadow-md">
+<div class="my-4 md:my-12 py-6 bg-white rounded-xl shadow-md">
   <div class="grid md:flex md:justify-around">
 
     <div class="w-2/3 justify-self-center md:w-1/4">
@@ -34,7 +36,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@temp_chart_data) %>">
         </canvas>
       </div>
-      <p align="center" class="text-base">
+      <p align="center" class="text-base md:text-lg">
         <strong>Current temp:</strong> <%= @cels %> °C / <%= @fahr %> °F
       </p>
     </div>
@@ -46,7 +48,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@mem_chart_data) %>">
         </canvas>
       </div>
-      <p align="center" class="text-base">
+      <p align="center" class="text-base md:text-lg">
         <strong>Memory Usage:</strong>
         <%= @used_memory %> / <%= @total_memory %> MiB
       </p>
@@ -59,7 +61,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@cpu_chart_data) %>">
         </canvas>
       </div>
-      <p align="center" class="text-base">
+      <p align="center" class="text-base md:text-lg">
         <strong>CPU Usage:</strong>
         <%= @cpu_usage %> %
       </p>
@@ -69,7 +71,7 @@ p {
 </div>
 
 <div class="bg-white p-8 rounded-xl shadow-md">
-  <h3 align="left" class="mb-2">Active Processes:</h3>
+  <h3 align="left" class="pb-4">Active Processes:</h3>
   <table style="padding: 0px; border-spacing: 0em">
     <tr>
       <th style="font-size: 0.75em">Name</th>
