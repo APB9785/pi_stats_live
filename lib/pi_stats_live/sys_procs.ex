@@ -35,6 +35,9 @@ defmodule PiStatsLive.SysProcs do
     [_, _, _, _, free_swap, _, used_swap, _, swap_total, _, _] =
       String.split(swap, " ", trim: true)
 
+    {total_mem, _} = Float.parse(total_mem)
+    {used_mem, _} = Float.parse(used_mem)
+
     %{:current_time => current_time,
       :uptime => uptime,
       :user_count => users,
@@ -75,7 +78,7 @@ defmodule PiStatsLive.SysProcs do
       uptime
       |> Enum.join
       |> String.replace(",", " ")
-    
+
     {current_time, uptime, users, load_1m, load_5m, load_15m}
   end
 
