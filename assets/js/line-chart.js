@@ -29,7 +29,7 @@ class LineChart {
               ticks: {
                 suggestedMin: 30,
                 suggestedMax: 100,
-                fontStyle: "bold",g
+                fontStyle: "bold",
                 fontSize: 14,
               },
             },
