@@ -7,19 +7,20 @@ p {
 }
 </style>
 <div class="phx-hero">
-  <h1><%= @hostname %> - <%= @local_ip %></h1>
-  <h2>Current Time: <%= @current_time %> CST</h2>
-  <p align="left">
-    <strong>System uptime:</strong>
-    <%= @uptime %>
-  </p>
-  <p align="left">
-    <strong>HD/SD Usage:</strong>
-    <%= @disk_used %> / <%= @disk_total %> GiB
-  </p>
-  <br>
+  <div>
+    <h1><%= @hostname %> - <%= @local_ip %></h1>
+    <h2>Current Time: <%= @current_time %> CST</h2>
+    <h2>
+      <strong>System uptime:</strong>
+      <%= @uptime %>
+    </h2>
+    <h2>
+      <strong>HD/SD Usage:</strong>
+      <%= @disk_used %> / <%= @disk_total %> GiB
+    </h2>
+  </div>
 
-  <div class="flex">
+  <div class="flex justify-around">
     <div class="w-1/4">
       <div phx-update="ignore">
         <canvas id="temp-chart-canvas"
