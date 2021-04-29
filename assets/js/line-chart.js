@@ -102,5 +102,4 @@ class MemChart {
   }
 }
 
-export default MemChart;
-export default TempChart;
+export { MemChart, TempChart };
