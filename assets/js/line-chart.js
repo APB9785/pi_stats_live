@@ -8,7 +8,7 @@ class TempChart {
         labels: labels,
         datasets: [
           {
-            label: "Temperature",
+            label: "Temp (°C)",
             data: values,
             borderColor: "#4c51bf",
           },
@@ -59,7 +59,7 @@ class MemChart {
         labels: labels,
         datasets: [
           {
-            label: "Memory",
+            label: "Memory (%)",
             data: values,
             borderColor: "#4c51bf",
           },
@@ -110,7 +110,7 @@ class CpuChart {
         labels: labels,
         datasets: [
           {
-            label: "CPU Usage",
+            label: "CPU (%)",
             data: values,
             borderColor: "#4c51bf",
           },
