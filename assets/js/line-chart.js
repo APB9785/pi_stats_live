@@ -16,24 +16,15 @@ class LineChart {
       },
       options: {
         scales: {
-          xAxes: [
-            {
-              ticks: {
-                fontStyle: "bold",
-                fontSize: 14,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              ticks: {
-                suggestedMin: 30,
-                suggestedMax: 100,
-                fontStyle: "bold",
-                fontSize: 14,
-              },
-            },
-          ],
+          x: {
+            ticks: {
+              display: false
+            }
+          },
+          y: {
+            suggestedMin: 20,
+            suggestedMax: 80
+          }
         },
       },
     });
