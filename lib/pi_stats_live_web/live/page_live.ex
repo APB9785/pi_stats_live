@@ -30,6 +30,12 @@ defmodule PiStatsLiveWeb.PageLive do
         values: [mem_value, mem_value]
       })
 
+    socket =
+      assign(socket, cpu_chart_data: %{
+        labels: ["", ""],
+        values: [socket.assigns.cpu_usage, socket.assigns.cpu_usage]
+      })
+
     {:ok, socket}
   end
 
@@ -43,9 +49,14 @@ defmodule PiStatsLiveWeb.PageLive do
       label: "",
       value: memory_percent(socket)
     }
+    cpu_point = %{
+      label: "",
+      value: socket.assigns.cpu_usage
+    }
 
     socket = push_event(socket, "new-temp-point", temp_point)
     socket = push_event(socket, "new-mem-point", mem_point)
+    socket = push_event(socket, "new-cpu-point", cpu_point)
 
     {:noreply, socket}
   end

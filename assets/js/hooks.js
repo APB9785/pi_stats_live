@@ -1,4 +1,4 @@
-import { MemChart, TempChart } from "./line-chart"
+import { CpuChart, MemChart, TempChart } from "./line-chart"
 
 let Hooks = {}
 
@@ -19,6 +19,17 @@ Hooks.MemChart = {
     this.chart = new MemChart(this.el, labels, values)
 
     this.handleEvent("new-mem-point", ({ label, value }) => {
+      this.chart.addPoint(label, value)
+    })
+  }
+}
+
+Hooks.CpuChart = {
+  mounted() {
+    const { labels, values } = JSON.parse(this.el.dataset.chartData)
+    this.chart = new CpuChart(this.el, labels, values)
+
+    this.handleEvent("new-cpu-point", ({ label, value }) => {
       this.chart.addPoint(label, value)
     })
   }

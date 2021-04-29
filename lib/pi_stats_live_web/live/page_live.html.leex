@@ -9,32 +9,6 @@ p {
 <div class="phx-hero">
   <h1><%= @hostname %> - <%= @local_ip %></h1>
   <h2>Current Time: <%= @current_time %> CST</h2>
-  <br>
-  <div class="w-1/2">
-    <div phx-update="ignore">
-      <canvas id="temp-chart-canvas"
-              phx-hook="TempChart"
-              data-chart-data="<%= Jason.encode!(@temp_chart_data) %>">
-      </canvas>
-    </div>
-
-    <p align="center">
-      <strong>Current temp:</strong> <%= @cels %> °C / <%= @fahr %> °F
-    </p>
-  </div>
-  <div class="w-1/2">
-    <div phx-update="ignore">
-      <canvas id="mem-chart-canvas"
-              phx-hook="MemChart"
-              data-chart-data="<%= Jason.encode!(@mem_chart_data) %>">
-      </canvas>
-    </div>
-
-    <p align="center">
-      <strong>Memory Usage:</strong>
-      <%= @used_memory %> / <%= @total_memory %> MiB
-    </p>
-  </div>
   <p align="left">
     <strong>System uptime:</strong>
     <%= @uptime %>
@@ -43,11 +17,47 @@ p {
     <strong>HD/SD Usage:</strong>
     <%= @disk_used %> / <%= @disk_total %> GiB
   </p>
-  <p align="left">
-    <strong>CPU Usage:</strong>
-    <%= @cpu_usage %> %
-  </p>
   <br>
+
+  <div class="flex">
+    <div class="w-1/4">
+      <div phx-update="ignore">
+        <canvas id="temp-chart-canvas"
+                phx-hook="TempChart"
+                data-chart-data="<%= Jason.encode!(@temp_chart_data) %>">
+        </canvas>
+      </div>
+      <p align="center">
+        <strong>Current temp:</strong> <%= @cels %> °C / <%= @fahr %> °F
+      </p>
+    </div>
+
+    <div class="w-1/4">
+      <div phx-update="ignore">
+        <canvas id="mem-chart-canvas"
+                phx-hook="MemChart"
+                data-chart-data="<%= Jason.encode!(@mem_chart_data) %>">
+        </canvas>
+      </div>
+      <p align="center">
+        <strong>Memory Usage:</strong>
+        <%= @used_memory %> / <%= @total_memory %> MiB
+      </p>
+    </div>
+
+    <div class="w-1/4">
+      <div phx-update="ignore">
+        <canvas id="cpu-chart-canvas"
+                phx-hook="CpuChart"
+                data-chart-data="<%= Jason.encode!(@cpu_chart_data) %>">
+        </canvas>
+      </div>
+      <p align="center">
+        <strong>CPU Usage:</strong>
+        <%= @cpu_usage %> %
+      </p>
+    </div>
+  </div>
 </div>
 
 <div>
