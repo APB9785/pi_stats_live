@@ -19,7 +19,7 @@ defmodule PiStatsLiveWeb.PageLive do
 
     socket =
       assign_new(socket, :chart_data, fn -> %{
-        labels: Enum.map(1..12, fn _ -> "" end)),
+        labels: Enum.map(1..12, fn _ -> "" end),
         values: Enum.map(1..12, &(if &1 == 12 do socket.assigns.fahr else 0 end))
       } end)
 
