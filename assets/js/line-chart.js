@@ -15,11 +15,6 @@ class LineChart {
         ],
       },
       options: {
-        plugins: {
-          legend: {
-            display: false
-          }
-        },
         scales: {
           xAxes: [
             {
