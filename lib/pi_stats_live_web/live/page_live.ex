@@ -18,9 +18,9 @@ defmodule PiStatsLiveWeb.PageLive do
       |> assign(hostname: SysInfo.get_hostname())
 
     socket =
-      assign_new(socket, :chart_data, fn -> %{
-        labels: Enum.map(1..12, fn _ -> "" end),
-        values: Enum.to_list(1..12)
+      assign(socket, chart_data: %{
+        labels: [""],
+        values: [socket.assigns.cels]
       } end)
 
     {:ok, socket}
@@ -30,7 +30,7 @@ defmodule PiStatsLiveWeb.PageLive do
     socket = assign_all(socket)
     point = %{
       label: "",
-      value: socket.assigns.fahr
+      value: socket.assigns.cels
     }
 
     socket = push_event(socket, "new-point", point)

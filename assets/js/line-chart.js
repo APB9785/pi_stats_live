@@ -27,9 +27,9 @@ class LineChart {
           yAxes: [
             {
               ticks: {
-                suggestedMin: 50,
-                suggestedMax: 200,
-                fontStyle: "bold",
+                suggestedMin: 30,
+                suggestedMax: 100,
+                fontStyle: "bold",g
                 fontSize: 14,
               },
             },
