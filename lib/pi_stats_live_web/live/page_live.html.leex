@@ -16,9 +16,10 @@ p {
   </div>
 </div>
 
-<div class="my-12 bg-white rounded-xl shadow-md">
+<div class="my-12 py-6 bg-white rounded-xl shadow-md">
   <div class="block md:flex md:justify-around">
-    <div class="w-2/3 md:w-1/4">
+
+    <div class="w-2/3 justify-self-center md:w-1/4">
       <div phx-update="ignore">
         <canvas id="temp-chart-canvas"
                 phx-hook="TempChart"
@@ -30,7 +31,7 @@ p {
       </p>
     </div>
 
-    <div class="w-2/3 my-8 md:m-0 md:w-1/4">
+    <div class="w-2/3 justify-self-center my-8 md:m-0 md:w-1/4">
       <div phx-update="ignore">
         <canvas id="mem-chart-canvas"
                 phx-hook="MemChart"
@@ -43,7 +44,7 @@ p {
       </p>
     </div>
 
-    <div class="w-2/3 md:w-1/4">
+    <div class="w-2/3 justify-self-center md:w-1/4">
       <div phx-update="ignore">
         <canvas id="cpu-chart-canvas"
                 phx-hook="CpuChart"
@@ -55,11 +56,12 @@ p {
         <%= @cpu_usage %> %
       </p>
     </div>
+
   </div>
 </div>
 
-<div class="bg-white p-4">
-  <h3 align="left">Active Processes:</h3>
+<div class="bg-white p-4 rounded-xl shadow-md">
+  <h3 align="left" class="mb-2">Active Processes:</h3>
   <table style="padding: 0px; border-spacing: 0em">
     <tr>
       <th style="font-size: 0.75em">Name</th>
