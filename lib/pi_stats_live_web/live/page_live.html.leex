@@ -7,7 +7,7 @@ p {
 }
 </style>
 <div class="grid justify-center mt-4">
-  <div class="bg-gray-300 rounded-xl shadow-md antialiased">
+  <div class="bg-gray-300 rounded-xl shadow-md antialiased p-4">
     <h1><%= @hostname %> - <%= @local_ip %></h1>
     <br>
     <h2>Current Time: <%= @current_time %> CST</h2>
@@ -16,7 +16,7 @@ p {
   </div>
 </div>
 
-<div class="my-12">
+<div class="my-12 bg-white rounded-xl shadow-md">
   <div class="block md:flex md:justify-around">
     <div class="md:w-1/4">
       <div phx-update="ignore">
@@ -58,7 +58,7 @@ p {
   </div>
 </div>
 
-<div>
+<div class="bg-white">
   <h3 align="left">Active Processes:</h3>
   <table style="padding: 0px; border-spacing: 0em">
     <tr>
