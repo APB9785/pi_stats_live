@@ -5,6 +5,8 @@
 **PiStatsLive** is a monitoring server for Raspberry Pi devices built with   
 Phoenix LiveView.
 
+<img src="assets/screenshots/main-v06.png" width="200">
+
 ## Features
 
   * Displays temperature, CPU/memory/disk usage, and system uptime
