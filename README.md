@@ -1,14 +1,26 @@
 # PiStatsLive
-   
-v0.4 - Added hostname and local IP   
-v0.3 - Added disk usage   
-v0.2.5 - Added tailwind CSS   
-v0.2 - Added Clock, uptime, CPU and RAM usage, and table of active processes   
-v0.1 - Shows real-time temperature in Celsius and Fahrenheit   
-   
+![GitHub](https://img.shields.io/github/license/APB9785/pi_stats_live)
+![GitHub last commit](https://img.shields.io/github/last-commit/APB9785/pi_stats_live)
+
+**PiStatsLive** is a monitoring server for Raspberry Pi devices built with   
+Phoenix LiveView.
+
+## Features
+
+  * Displays temperature, CPU/memory/disk usage, and system uptime
+  * Charts show previous 30 seconds of activity
+  * Process monitor shows non-idle non-system processes
+
+## System Requirements
+
+PiStatsLive was designed and tested on a Raspberry Pi 4B running Raspbian 10.   
+It will likely work on other models, as long as the OS is Raspbian.
+
+## Installation
+
 To start the server:
 
-  * [Ensure that your system has Phoenix and its dependencies installed](https://hexdocs.pm/phoenix/installation.html)
+  * [Ensure that your system has Phoenix and its dependencies installed](https://hexdocs.pm/phoenix/installation.html) (Note: A database is NOT required to run this server)
   * Install app dependencies with `mix deps.get`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
   * Start Phoenix endpoint with `mix phx.server`
