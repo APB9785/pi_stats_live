@@ -18,9 +18,16 @@ defmodule PiStatsLiveWeb.PageLive do
       |> assign(hostname: SysInfo.get_hostname())
 
     socket =
-      assign(socket, chart_data: %{
+      assign(socket, temp_chart_data: %{
         labels: ["", ""],
         values: [socket.assigns.cels, socket.assigns.cels]
+      })
+
+    mem_value = memory_percent(socket)
+    socket =
+      assign(socket, mem_chart_data: %{
+        labels: ["", ""],
+        values: [mem_value, mem_value]
       })
 
     {:ok, socket}
@@ -28,12 +35,17 @@ defmodule PiStatsLiveWeb.PageLive do
 
   def handle_info(:tick, socket) do
     socket = assign_all(socket)
-    point = %{
+    temp_point = %{
       label: "",
       value: socket.assigns.cels
     }
+    mem_point = %{
+      label: "",
+      value: memory_percent(socket)
+    }
 
-    socket = push_event(socket, "new-point", point)
+    socket = push_event(socket, "new-temp-point", temp_point)
+    socket = push_event(socket, "new-mem-point", mem_point)
 
     {:noreply, socket}
   end
@@ -51,4 +63,7 @@ defmodule PiStatsLiveWeb.PageLive do
     |> assign(disk_map)
   end
 
+  defp memory_percent(socket) do
+    (socket.assigns.used_memory / socket.assigns.total_memory) * 100
+  end
 end
