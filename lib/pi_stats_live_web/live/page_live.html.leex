@@ -9,15 +9,10 @@ p {
 <div class="phx-hero">
   <div>
     <h1><%= @hostname %> - <%= @local_ip %></h1>
+    <br>
     <h2>Current Time: <%= @current_time %> CST</h2>
-    <h2>
-      <strong>System uptime:</strong>
-      <%= @uptime %>
-    </h2>
-    <h2>
-      <strong>HD/SD Usage:</strong>
-      <%= @disk_used %> / <%= @disk_total %> GiB
-    </h2>
+    <h2>System uptime: <%= @uptime %></h2>
+    <h2>HD/SD Usage: <%= @disk_used %> / <%= @disk_total %> GiB</h2>
   </div>
 
   <div class="flex justify-around">
@@ -28,7 +23,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@temp_chart_data) %>">
         </canvas>
       </div>
-      <p align="center">
+      <p align="center" class="text-sm">
         <strong>Current temp:</strong> <%= @cels %> °C / <%= @fahr %> °F
       </p>
     </div>
@@ -40,7 +35,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@mem_chart_data) %>">
         </canvas>
       </div>
-      <p align="center">
+      <p align="center" class="text-sm">
         <strong>Memory Usage:</strong>
         <%= @used_memory %> / <%= @total_memory %> MiB
       </p>
@@ -53,7 +48,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@cpu_chart_data) %>">
         </canvas>
       </div>
-      <p align="center">
+      <p align="center" class="text-sm">
         <strong>CPU Usage:</strong>
         <%= @cpu_usage %> %
       </p>
