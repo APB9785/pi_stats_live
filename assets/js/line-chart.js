@@ -1,4 +1,4 @@
-import { Chart, CategoryScale } from 'chart.js';
+import Chart from 'chart.js/auto';
 
 class LineChart {
   constructor(ctx, labels, values) {
