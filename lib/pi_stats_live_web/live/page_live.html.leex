@@ -23,7 +23,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@temp_chart_data) %>">
         </canvas>
       </div>
-      <p align="center" class="text-sm">
+      <p align="center" class="text-base">
         <strong>Current temp:</strong> <%= @cels %> °C / <%= @fahr %> °F
       </p>
     </div>
@@ -35,7 +35,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@mem_chart_data) %>">
         </canvas>
       </div>
-      <p align="center" class="text-sm">
+      <p align="center" class="text-base">
         <strong>Memory Usage:</strong>
         <%= @used_memory %> / <%= @total_memory %> MiB
       </p>
@@ -48,7 +48,7 @@ p {
                 data-chart-data="<%= Jason.encode!(@cpu_chart_data) %>">
         </canvas>
       </div>
-      <p align="center" class="text-sm">
+      <p align="center" class="text-base">
         <strong>CPU Usage:</strong>
         <%= @cpu_usage %> %
       </p>
