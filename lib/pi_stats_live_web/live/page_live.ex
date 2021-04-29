@@ -17,11 +17,25 @@ defmodule PiStatsLiveWeb.PageLive do
       |> assign(local_ip: SysInfo.get_local_ip())
       |> assign(hostname: SysInfo.get_hostname())
 
+    socket =
+      assign_new(socket, :chart_data, fn -> %{
+        labels: Enum.map(1..12, &(""))
+        values: Enum.map(1..12, &(if &1 == 12 do socket.assigns.fahr else 0 end))
+      } end)
+
     {:ok, assign_all(socket)}
   end
 
   def handle_info(:tick, socket) do
-    {:noreply, assign_all(socket)}
+    socket = assign_all(socket)
+    point = %{
+      label: "",
+      value: socket.assigns.fahr
+    }
+
+    socket = push_event(socket, "new-point", point)
+
+    {:noreply, socket}
   end
 
   def assign_all(socket) do

@@ -14,15 +14,15 @@ p {
     <strong>Current temp:</strong> <%= @cels %> °C / <%= @fahr %> °F
   </p>
   <p align="left">
-    <strong>System uptime:</strong> 
-    <%= @uptime %> 
+    <strong>System uptime:</strong>
+    <%= @uptime %>
   </p>
   <p align="left">
     <strong>HD/SD Usage:</strong>
     <%= @disk_used %> / <%= @disk_total %> GiB
   </p>
   <p align="left">
-    <strong>Memory Usage:</strong> 
+    <strong>Memory Usage:</strong>
     <%= @used_memory %> / <%= @total_memory %> MiB
   </p>
   <p align="left">
@@ -31,6 +31,14 @@ p {
   </p>
   <br>
 </div>
+
+<div phx-update="ignore">
+  <canvas id="chart-canvas"
+          phx-hook="LineChart"
+          data-chart-data="<%= Jason.encode!(@chart_data) %>">
+  </canvas>
+</div>
+
 <div>
   <h3 align="left">Active Processes:</h3>
   <table style="padding: 0px; border-spacing: 0em">
