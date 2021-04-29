@@ -8,7 +8,7 @@ defmodule PiStatsLiveWeb.PageLive do
 
   def mount(_params, _session, socket) do
     if connected?(socket) do
-      :timer.send_interval(5000, self(), :tick)
+      :timer.send_interval(2500, self(), :tick)
     end
 
     socket =
@@ -19,8 +19,8 @@ defmodule PiStatsLiveWeb.PageLive do
 
     socket =
       assign(socket, chart_data: %{
-        labels: [""],
-        values: [socket.assigns.cels]
+        labels: ["", ""],
+        values: [socket.assigns.cels, socket.assigns.cels]
       })
 
     {:ok, socket}
