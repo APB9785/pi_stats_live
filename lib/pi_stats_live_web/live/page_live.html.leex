@@ -16,9 +16,9 @@ p {
   </div>
 </div>
 
-<div class="mt-8">
-  <div class="flex justify-around">
-    <div class="w-1/4">
+<div class="my-12">
+  <div class="block md:flex md:justify-around">
+    <div class="md:w-1/4">
       <div phx-update="ignore">
         <canvas id="temp-chart-canvas"
                 phx-hook="TempChart"
@@ -30,7 +30,7 @@ p {
       </p>
     </div>
 
-    <div class="w-1/4">
+    <div class="md:w-1/4">
       <div phx-update="ignore">
         <canvas id="mem-chart-canvas"
                 phx-hook="MemChart"
@@ -43,7 +43,7 @@ p {
       </p>
     </div>
 
-    <div class="w-1/4">
+    <div class="md:w-1/4">
       <div phx-update="ignore">
         <canvas id="cpu-chart-canvas"
                 phx-hook="CpuChart"
