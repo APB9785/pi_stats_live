@@ -12,6 +12,7 @@ Phoenix LiveView.
   * Displays temperature, CPU/memory/disk usage, and system uptime
   * Charts show previous 30 seconds of activity
   * Process monitor shows non-idle non-system processes
+  * Responsive styling for mobile devices
 
 ## System Requirements
 
