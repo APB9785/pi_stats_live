@@ -7,6 +7,7 @@ defmodule PiStatsLiveWeb.PageLive do
   alias PiStatsLive.Temp
   alias PiStatsLiveWeb.CpuChartComponent
   alias PiStatsLiveWeb.MemChartComponent
+  alias PiStatsLiveWeb.ProcListComponent
   alias PiStatsLiveWeb.SystemComponent
   alias PiStatsLiveWeb.TempChartComponent
 
