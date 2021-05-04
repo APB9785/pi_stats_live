@@ -1,6 +1,6 @@
 defmodule PiStatsLiveWeb.SystemComponent do
   @moduledoc """
-  Header box with system info
+  Header box with system info.
   """
 
   use PiStatsLiveWeb, :live_component

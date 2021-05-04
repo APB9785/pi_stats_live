@@ -5,6 +5,10 @@ defmodule PiStatsLiveWeb.PageLive do
   alias PiStatsLive.SysInfo
   alias PiStatsLive.SysProcs
   alias PiStatsLive.Temp
+  alias PiStatsLiveWeb.CpuChartComponent
+  alias PiStatsLiveWeb.MemChartComponent
+  alias PiStatsLiveWeb.SystemComponent
+  alias PiStatsLiveWeb.TempChartComponent
 
   def mount(_params, _session, socket) do
     if connected?(socket) do
