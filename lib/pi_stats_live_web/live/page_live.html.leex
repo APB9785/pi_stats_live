@@ -7,65 +7,30 @@ p {
 }
 </style>
 
-<div class="flex justify-center">
-  <div class="my-2 md:mt-12 py-6 bg-gray-300 rounded-xl shadow-md w-full md:w-1/2">
-    <div class="grid justify-center">
-      <div class="font-bold mb-4">
-        <%= @hostname %> - <%= @local_ip %>
-      </div>
-      <div>
-        Current Time: <%= @current_time %> CST
-      </div>
-      <div>
-        System uptime: <%= @uptime %>
-      </div>
-      <div>
-        HD/SD Usage: <%= @disk_used %> / <%= @disk_total %> GiB
-      </div>
-    </div>
-  </div>
-</div>
+<%= live_component @socket, SystemComponent,
+      hostname: @hostname,
+      local_ip: @local_ip,
+      current_time: @current_time,
+      uptime: @uptime,
+      disk_used: @disk_used,
+      disk_total: @disk_total %>
 
 <div class="my-4 md:my-12 py-6 bg-white rounded-xl shadow-md">
   <div class="grid md:flex md:justify-around">
 
-    <div class="w-2/3 justify-self-center md:w-1/4">
-      <div phx-update="ignore">
-        <canvas id="temp-chart-canvas"
-                phx-hook="TempChart"
-                data-chart-data="<%= Jason.encode!(@temp_chart_data) %>">
-        </canvas>
-      </div>
-      <p align="center" class="text-base md:text-lg">
-        <strong>Current temp:</strong> <%= @cels %> °C / <%= @fahr %> °F
-      </p>
-    </div>
+    <%= live_component @socket, TempChartComponent,
+          temp_chart_data: @temp_chart_data,
+          cels: @cels,
+          fahr: @fahr %>
 
-    <div class="w-2/3 justify-self-center my-8 md:m-0 md:w-1/4">
-      <div phx-update="ignore">
-        <canvas id="mem-chart-canvas"
-                phx-hook="MemChart"
-                data-chart-data="<%= Jason.encode!(@mem_chart_data) %>">
-        </canvas>
-      </div>
-      <p align="center" class="text-base md:text-lg">
-        <strong>Memory Usage:</strong>
-        <%= @used_memory %> / <%= @total_memory %> MiB
-      </p>
-    </div>
+    <%= live_component @socket, MemChartComponent,
+          mem_chart_data: @mem_chart_data,
+          used_memory: @used_memory,
+          total_memory: @total_memory %>
 
-    <div class="w-2/3 justify-self-center md:w-1/4">
-      <div phx-update="ignore">
-        <canvas id="cpu-chart-canvas"
-                phx-hook="CpuChart"
-                data-chart-data="<%= Jason.encode!(@cpu_chart_data) %>">
-        </canvas>
-      </div>
-      <p align="center" class="text-base md:text-lg">
-        <strong>CPU Usage:</strong>
-        <%= @cpu_usage %> %
-      </p>
-    </div>
+    <%= live_component @socket, CpuChartComponent,
+          cpu_chart_data: @cpu_chart_data,
+          cpu_usage: @cpu_usage %>
 
   </div>
 </div>

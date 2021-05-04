@@ -11,30 +11,20 @@ defmodule PiStatsLiveWeb.PageLive do
       :timer.send_interval(2500, self(), :tick)
     end
 
-    socket =
-      socket
-      |> assign_all
-      |> assign(local_ip: SysInfo.get_local_ip())
-      |> assign(hostname: SysInfo.get_hostname())
-
-    socket =
-      assign(socket, temp_chart_data: %{
-        labels: ["", ""],
-        values: [socket.assigns.cels, socket.assigns.cels]
-      })
-
+    socket = assign_all(socket)
     mem_value = memory_percent(socket)
-    socket =
-      assign(socket, mem_chart_data: %{
+    socket = assign(socket,
+      local_ip: SysInfo.get_local_ip(),
+      hostname: SysInfo.get_hostname(),
+      temp_chart_data: %{
         labels: ["", ""],
-        values: [mem_value, mem_value]
-      })
-
-    socket =
-      assign(socket, cpu_chart_data: %{
+        values: [socket.assigns.cels, socket.assigns.cels]},
+      mem_chart_data: %{
         labels: ["", ""],
-        values: [socket.assigns.cpu_usage, socket.assigns.cpu_usage]
-      })
+        values: [mem_value, mem_value]},
+      cpu_chart_data: %{
+        labels: ["", ""],
+        values: [socket.assigns.cpu_usage, socket.assigns.cpu_usage]})
 
     {:ok, socket}
   end
@@ -68,8 +58,7 @@ defmodule PiStatsLiveWeb.PageLive do
     disk_map = Disk.get_current()
 
     socket
-    |> assign(cels: Float.to_string(c_temp))
-    |> assign(fahr: Float.to_string(f_temp))
+    |> assign(cels: Float.to_string(c_temp), fahr: Float.to_string(f_temp))
     |> assign(proc_map)
     |> assign(disk_map)
   end
