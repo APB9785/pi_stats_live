@@ -1,12 +1,3 @@
-<style>
-td, th {
-  padding: 0px;
-}
-p {
-  margin-bottom: 0px;
-}
-</style>
-
 <%= live_component @socket, SystemComponent,
       hostname: @hostname,
       local_ip: @local_ip,
@@ -35,22 +26,4 @@ p {
   </div>
 </div>
 
-<div class="bg-white p-8 rounded-xl shadow-md">
-  <h3 align="left" class="pb-4">Active Processes:</h3>
-  <table style="padding: 0px; border-spacing: 0em">
-    <tr>
-      <th style="font-size: 0.75em">Name</th>
-      <th style="font-size: 0.75em">Uptime</th>
-      <th style="font-size: 0.75em">CPU Use</th>
-      <th style="font-size: 0.75em">RAM Use</th>
-    </tr>
-    <%= for proc <- @process_list do %>
-      <tr>
-        <td style="font-size: 0.75em"><%= proc["name"] %></td>
-        <td style="font-size: 0.75em"><%= proc["uptime"] %></td>
-        <td style="font-size: 0.75em"><%= proc["cpu"] %> %</td>
-        <td style="font-size: 0.75em"><%= proc["mem"] %> %</td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+<%= live_component @socket, ProcListComponent, process_list: @process_list %>
